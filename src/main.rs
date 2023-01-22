@@ -7,7 +7,7 @@ fn main() {
 	if url.find("/",).is_none() {
 		url = format!("sugiura-hiromichi/{url}");
 	}
-	url = format!("https://github.com/{url}");
+	url = format!("git@github.com:{url}");
 
 	sh_cmd!("git", ["clone".to_string(), url.clone()]);
 }

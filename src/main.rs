@@ -9,5 +9,5 @@ fn main() {
 	}
 	url = format!("git@github.com:{url}");
 
-	sh_cmd!("git", ["clone".to_string(), url.clone()]);
+	sh_cmd!("git", ["clone", "--depth", "1", &url]);
 }

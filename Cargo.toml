@@ -4,6 +4,12 @@ version = "0.2.3"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+license = "MIT"
+description = "my personal shorthand of git clone"
+homepage = "https://github.com/sugiura-hiromichi/gc"
+documentation = "https://github.com/sugiura-hiromichi/gc"
+repository = "https://github.com/sugiura-hiromichi/gc"
+readme = "README.md"
 
 [dependencies]
-mylibrary = { git = "https://github.com/sugiura-hiromichi/mylibrary" }
+sugiura-hiromichi_mylibrary = "1"

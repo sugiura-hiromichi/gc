@@ -1,15 +1,20 @@
+use mylibrary_::sh_cmd;
 use std::env::args;
-use sugiura_hiromichi_mylibrary::cli::CliParser as _;
-use sugiura_hiromichi_mylibrary::sh_cmd;
 
-fn main() -> anyhow::Result<(),> {
-	let mut url = args().to_string();
-	if url.find("/",).is_none() {
-		url = format!("sugiura-hiromichi/{url}");
-	}
-	url = format!("git@github.com:{url}");
+fn main() {
+	let urls: Vec<String,> = args().collect();
+	urls.iter().for_each(|url| {
+		let mut repo = String::new();
+		if url.find("/",).is_none() {
+			repo = format!("sugiura-hiromichi/{url}");
+		}
+		repo = format!("git@github.com:{repo}");
 
-	let o = sh_cmd!("git", ["clone", "--depth", "1", &url])?.unwrap();
-	println!("exit_status |>{}", o.status);
-	Ok((),)
+		let o = sh_cmd!("git", ["clone", "--depth", "1", &repo]).unwrap().unwrap();
+		if !o.status.success() {
+			println!("execution of `git clone {repo}` failed");
+			println!("stderr:\n\t{}", std::str::from_utf8(&o.stderr).unwrap());
+			println!("stdout:\n\t{}", std::str::from_utf8(&o.stdout).unwrap());
+		}
+	},);
 }

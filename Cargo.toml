@@ -1,16 +1,16 @@
 [package]
-name = "sugiura-hiromichi_gc"
-version = "0.2.3"
+name = "gc_"
+version = "0.3.3"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-license = "MIT"
-description = "my personal shorthand of git clone"
-homepage = "https://github.com/sugiura-hiromichi/gc"
 documentation = "https://github.com/sugiura-hiromichi/gc"
-repository = "https://github.com/sugiura-hiromichi/gc"
+homepage = "https://github.com/sugiura-hiromichi/gc"
+license = "MIT"
 readme = "README.md"
+repository = "https://github.com/sugiura-hiromichi/gc"
+description = "my personal shorthand of git clone"
 
 [dependencies]
-sugiura-hiromichi_mylibrary = "1"
 anyhow = "1"
+sugiura-hiromichi_mylibrary = "1"
